@@ -1,0 +1,41 @@
+<!--pages/cars/cars.wxml-->
+
+<!-- <view class="cu-modal show">
+    <view class="cu-dialog">
+      <radio-group class="block" style="background:white" bindchange='radioChange'>
+        <view class="cu-list menu text-left">
+          <view style='font-size:15px;background:white;margin:5px;text-align:center'>选择显示的车辆</view>
+          <view class="cu-item" wx:for="{{userCars}}" wx:key>
+            <label class="flex justify-between align-center flex-sub">
+              <view class="flex-sub">{{userCars[index]}}</view>
+              <radio wx:if='{{userCars[index] == shownCar}}' checked='true' value='{{index}}'></radio>
+              <radio wx:else class="round" value='{{index}}'></radio>
+            </label>
+          </view>
+        </view>
+      </radio-group>
+    </view>
+  </view> -->
+  <view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-orange "></text> 当前车辆
+  </view>
+  <view class="action">
+    <button class="cu-btn bg-green shadow" bindtap="showModal" data-target="RadioModal">选择车辆</button>
+  </view>
+</view>
+
+<view class="cu-modal {{modalName=='RadioModal'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog" catchtap>
+    <radio-group class="block">
+      <view class="cu-list menu text-left">
+        <view class="cu-item" wx:for="{{5}}" wx:key>
+          <label class="flex justify-between align-center flex-sub">
+            <view class="flex-sub">Item {{index +1}}</view>
+            <radio class="round"></radio>
+          </label>
+        </view>
+      </view>
+    </radio-group>
+  </view>
+</view>

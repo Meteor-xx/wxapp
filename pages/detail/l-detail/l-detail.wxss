@@ -1,0 +1,77 @@
+/* pages/detail/l-detail/l-detail.wxss */
+
+
+.carDetail {
+  bottom:150rpx;
+  right:20rpx;
+  position: fixed;
+  width: 12vw;
+  height: 12vw;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10rpx #aaaaaa;
+}
+.gif{
+  bottom:41vh;
+  right:30vw;
+  position: fixed;
+  width: 40vw;
+  height: 18vh;
+  border-radius: 10rpx;
+  background-color: white;
+}
+
+.carDetailImg{
+  width: 8vw;
+  height: 8vw;
+  margin: 2vw;
+}
+
+.pluscv {
+  bottom:40rpx;
+  left:120rpx;
+  position: fixed;
+  width: 80rpx;
+  height: 80rpx;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10rpx #aaaaaa;
+}
+
+.plusimg {
+  width: 48rpx;
+  height: 48rpx;
+  margin: 16rpx
+}
+
+.minuscv {
+  bottom:40rpx;
+  left:210rpx;
+  position: fixed;
+  width: 80rpx;
+  height: 80rpx;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10rpx #aaaaaa;
+}
+
+.minusimg {
+  width: 48rpx;
+  height: 48rpx;
+  margin: 16rpx
+}
+.location{
+ bottom:40rpx;
+  right:20rpx;
+  position: fixed;
+  width: 12vw;
+  height: 12vw;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10rpx #aaaaaa;
+}
+.location1{
+  width: 8vw;
+  height: 8vw;
+  margin: 2vw;
+}

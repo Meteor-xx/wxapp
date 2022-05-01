@@ -1,0 +1,71 @@
+var milesToFix = function(m){
+  m=m/1000
+  if(m == 0)
+    return 0
+  return m.toFixed(3)
+}
+var numFix = function(n){
+  if(n == 0)
+   return 0
+  return n.toFixed(1)
+}
+var fuelFix = function(f){
+  if(f == 0)
+    return '今日油耗:' + 0 + '升'
+  else if(f==-1 || f==undefined)
+   return '爱车休息日'
+  return '今日油耗:' + f.toFixed(0) + '升'
+}
+var timeToFix = function(t){
+  if(t<60)
+    {
+      if(t == 0)
+        return 0 + '秒'
+      return t+'秒'
+    }
+  else if(t>=60&&t<3600)
+    {
+      m =(t-t%60)/60
+      s = t%60
+      return m + '分' + s + '秒'
+    }
+  else if(t>=3600)
+    {
+      m=(t-t%60)/60
+      s=t%60
+      h=(m - m%60)/60
+      m = m%60
+      return h+'小时'+m+'分'+s+'秒'
+    }
+  else
+    return '无数据'
+}
+var timeToFixT = function (t) {
+  if (t < 60) {
+    if (t == 0)
+      return 0 + 'h'
+    return t + 's'
+  }
+  else if (t >= 60 && t < 3600) {
+    m = (t - t % 60) / 60
+    s = t % 60
+    return m + 'm' + s + 's'
+  }
+  else if (t >= 3600) {
+    m = (t - t % 60) / 60
+    s = t % 60
+    h = (m - m % 60) / 60
+    m = m % 60
+    return h + 'h' + m + 'm'
+  }
+  else
+    return '无数据'
+}
+
+module.exports={
+  milesToFix: milesToFix,
+  timeToFix: timeToFix ,
+  timeToFixT:timeToFixT,
+  numFix:numFix,
+  fuelFix:fuelFix
+}

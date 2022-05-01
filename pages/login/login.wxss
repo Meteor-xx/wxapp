@@ -1,0 +1,138 @@
+
+.header {
+    margin: 180rpx 0 0rpx 50rpx;
+    text-align: center;
+    width: 650rpx;
+    height: 300rpx;
+    line-height: 450rpx;
+}
+
+.header image {
+    width: 300rpx;
+}
+
+.content {
+    margin-left: 50rpx;
+    margin-bottom: 90rpx;
+}
+
+.content text {
+    display: block;
+    color: #9d9d9d;
+    margin-top: 40rpx;
+}
+
+.bottom {
+    border-radius: 80rpx;
+    margin: 20rpx 50rpx;
+    font-size: 35rpx;
+}
+
+.item{
+    flex-grow:1;
+    height: 30%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 96%;
+    padding: 0 2%;
+}
+
+.login-item{
+    width: 90%;
+    margin-top: 30rpx;
+    border-bottom: 1px solid #ccc;
+    flex-grow:1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-bottom: 20rpx;
+}
+
+.login-item image{
+  width: 60rpx
+}
+
+
+.login-item-info{
+    font-size: 8px;
+    color: #888;
+     padding-bottom: 20rpx;
+}
+
+.login-pwd{
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    align-items: center;
+    margin-left: 35rpx
+
+}
+
+.login-pwd text{
+    height: 100%;
+    font-size: 14px;
+    color: #888;
+    display: flex;
+
+}
+.login-btn{
+    width: 80%;
+    color: white;
+    border-radius: 0;
+    font-size: 14px;
+
+}
+
+.login-btn:hover{
+    width: 80%;
+    color: white;
+    border-radius: 0;
+}
+
+.form-group {
+	padding: 1rpx 0rpx;
+	display: flex;
+	align-items: center;
+	min-height: 100rpx;
+	justify-content: space-between;
+  margin-left: 50vw
+
+}
+
+.form-group .title {
+	text-align: justify;
+	font-size: 30rpx;
+	position: relative;
+	height: 60rpx;
+	line-height: 60rpx;
+  padding-left: 10rpx;
+}
+.round {
+	border-radius: 0.5;
+  transform: scale(0.7,0.7);
+}
+.scrollview {
+  height: 20%;
+  width: 75vw;
+  position: absolute;
+  top: 590rpx;
+  z-index: 9999
+
+}
+
+.itemview {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  z-index: 9999;
+  background-color: white;
+  padding: 5rpx 20rpx 5rpx 20rpx;
+  border-bottom: 1px solid #cce6ff;
+  border-left: 1px solid #cce6ff;
+  border-right: 1px solid #cce6ff;
+  height: 80rpx;
+  font-size: 40rpx
+}

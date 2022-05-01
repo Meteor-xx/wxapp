@@ -1,0 +1,112 @@
+/**index.wxss**/
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.pluscv {
+  bottom:40rpx;
+  left:120rpx;
+  position: fixed;
+  width: 80rpx;
+  height: 80rpx;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10rpx #aaaaaa;
+}
+
+.plusimg {
+  width: 48rpx;
+  height: 48rpx;
+  margin: 16rpx
+}
+.gif{
+  bottom:38vh;
+  right:30vw;
+  position: fixed;
+  width: 40vw;
+  height: 20vh;
+  border-radius: 10rpx;
+  background-color: white;
+}
+.minuscv {
+  bottom:40rpx;
+  left:210rpx;
+  position: fixed;
+  width: 80rpx;
+  height: 80rpx;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10rpx #aaaaaa;
+}
+
+.minusimg {
+  width: 48rpx;
+  height: 48rpx;
+  margin: 16rpx
+}
+
+.carDetail {
+  bottom:150rpx;
+  right:20rpx;
+  position: fixed;
+  width: 12vw;
+  height: 12vw;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10rpx #aaaaaa;
+}
+
+.carDetailImg{
+  width: 8vw;
+  height: 8vw;
+  margin: 2vw;
+}
+.location{
+ bottom:40rpx;
+  right:20rpx;
+  position: fixed;
+  width: 12vw;
+  height: 12vw;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10rpx #aaaaaa;
+}
+.location1{
+  width: 8vw;
+  height: 8vw;
+  margin: 2vw;
+}
+/* .modalBox{
+  background-color:white;
+  position: fixed;
+  width: 600rpx;
+  height: 460rpx;
+  margin-left: 15rpx;
+  padding: 60rpx;
+  padding-bottom: 0;
+  padding-top: 0;
+  bottom: 0;
+  border-top-left-radius: 36rpx;
+  border-top-right-radius: 36rpx;
+  box-shadow: 0 0 20rpx #aaaaaa;
+  display: flex;
+  flex-direction: column;
+} */

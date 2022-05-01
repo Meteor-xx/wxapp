@@ -1,0 +1,118 @@
+<!--pages/user/user.wxml-->
+<view class='page' wx:if="{{shown_mode == 'read'}}">
+  <view class='page__hd'>
+    <view class='page__title'>我的设备</view>
+    <view class='page__desc'>我的设备信息</view>
+  </view>
+
+  <view class='page__bd'>
+    <view class='weui-cells__title'>详细信息</view>
+    <view class='weui-cells weui-cells_after-title'>
+      <view class='weui-cell'>
+        <view class='weui-cell__bd'>车辆品牌</view>
+        <view class='weui-cell__ft' style='font-size:12px'>{{vehicleManufacturers}}</view>
+      </view>
+      <view class='weui-cell'>
+        <view class='weui-cell__bd'>车系</view>
+        <view class='weui-cell__ft' style='font-size:12px'>{{series}}</view>
+      </view>
+      <view class='weui-cell'>
+        <view class='weui-cell__bd'>车牌号</view>
+        <view class='weui-cell__ft' style='font-size:12px'>{{plateNumber}}</view>
+      </view>
+      <view class='weui-cell'>
+        <view class='weui-cell__bd'>车架号(VIN)</view>
+        <view class='weui-cell__ft' style='font-size:12px'>{{vehicleIdentificationNumber}}</view>
+      </view>
+      <view class='weui-cell'>
+        <view class='weui-cell__bd'>设备号</view>
+        <view class='weui-cell__ft' style='font-size:11px'>{{deviceId}}</view>
+      </view>
+    </view>
+
+    <view class="padding flex flex-direction">
+      <button class="cu-btn bg-green margin-tb-sm lg" bindtap='editInfo'>绑定设备</button>
+      <button class="cu-btn bg-red margin-tb-sm lg" bindtap='quit'>退出登录</button>
+    </view>
+
+  </view>
+
+</view>
+
+
+<view class='page' wx:elif="{{shown_mode == 'write'}}">
+  <view class='page__hd'>
+    <view class='page__title'>设备绑定</view>
+  </view>
+  <form bindsubmit="formSubmit" bindreset='cancel'>
+    <view class='page__bd'>
+      <view class='weui-cells__title'>填写信息</view>
+
+      <view class='weui-cells__title' style='color:red' wx:if='{{isfullFill}}'>请务必填写完整！</view>
+
+      <view class="cu-form-group margin-top">
+        <view class="title">设备号</view>
+        <input placeholder="输入设备号" maxlength='15' value='{{wDeviceId}}' name='wDeviceId'></input>
+        <text class="cuIcon-scan lg text-gray" style='font-size:48rpx' bindtap='scanQrCode'></text>
+      </view>
+      <view class="cu-form-group">
+        <view class="title">车架号(VIN)</view>
+        <input placeholder="输入车架号(VIN码)" value='{{wVehicleIdentificationNumber}}' name='wVehicleIdentificationNumber'></input>
+        <text class="cuIcon-scan lg text-gray" style='font-size:48rpx' bindtap='scanCode'></text>
+      </view>
+      <view class="cu-form-group">
+        <view class="title">车牌号</view>
+        <input placeholder="输入车牌号" value='{{wPlateNumber}}' name='wPlateNumber'></input>
+      </view>
+      <view class="cu-form-group">
+        <view class="title">车辆品牌</view>
+        <input placeholder="输入车辆品牌" value='{{wVehicleManufacturers}}' name='wVehicleManufacturers'></input>
+      </view>
+      <view class="cu-form-group">
+        <view class="title">车系</view>
+        <input placeholder="输入车系" value='{{wSeries}}' name='wSeries'></input>
+      </view>
+
+      <view class="cu-form-group">
+        <view class="title">手机号</view>
+        <input placeholder="输入手机号" type='number' maxlength='11' name=''></input>
+        <view class="cu-capsule radius">
+          <view class="cu-tag bg-blue">
+            +86
+          </view>
+          <view class="cu-tag line-blue">
+            中国大陆
+          </view>
+        </view>
+      </view>
+
+      <view class="cu-form-group">
+        <view class="title">验证码</view>
+        <input placeholder="获取验证码" name=''></input>
+        <button class="cu-btn bg-green shadow">验证码</button>
+      </view>
+
+      <view class="padding flex flex-direction">
+        <button class="cu-btn bg-green margin-tb-sm lg" form-type='submit'>确 认</button>
+        <button class="cu-btn bg-red margin-tb-sm lg" form-type='reset'>取 消</button>
+      </view>
+    </view>
+  </form>
+
+  <view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+    <view class="cu-dialog">
+      <view class="cu-bar bg-white justify-end">
+        <view class="content">绑定失败</view>
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close text-red"></text>
+        </view>
+      </view>
+      <view class="padding-xl">
+        无法找到相应的设备，请检查设备信息。
+      </view>
+      <view class="cu-bar bg-white">
+        <view class="action margin-0 flex-sub  solid-left" bindtap="hideModal">我知道了</view>
+      </view>
+    </view>
+  </view>
+</view>

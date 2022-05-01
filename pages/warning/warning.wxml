@@ -1,0 +1,86 @@
+<!-- <view class="page__hd">
+    <view class="page__title">告警列表</view>
+    <view class="page__desc">您设备的一些告警信息在本页显示</view>
+  </view> -->
+
+<!-- <view class='deleter'>
+    <view class='deleter_bd'>
+      <picker class="deleter_cell" mode="date" start="2015-09-01" end="{{date}}" bindchange="bindDateChange">
+        <image src='../../image/calendar-check.png' style='width:23px;height:23px;margin-top:5px;margin-left:1px'></image>
+      </picker>
+      <text class="deleter_cell" style='flex:1'>|</text>
+      <image class="deleter_cell" src='../../image/reload.png' style='width:23px;height:23px;' bindtap='reloader'></image>
+    </view>
+  </view> -->
+
+<view wx:if='{{shown_listL == 0}}' style='width:100vw;padding:10vw;margin-top:10vw;text-align:center;color:rgba(146, 146, 146, 0.452);'>无告警信息</view>
+
+<view wx:for='{{shown_list}}' wx:key='id' class='sticker' bindtap='itemtaped' data-item='{{item}}'>
+   <view class='sticker_top'>
+     <image src='{{item.iconPath}}' style='height:75rpx;width:75rpx'/>
+     <text style='margin-left:40rpx'>{{item.alarmTime}}</text>
+   </view>
+   <view class='{{item.style}}'>
+      <view style='text-align:center'>
+        <text style='font-size:35rpx'>{{item.alarmName}}</text>
+      </view>
+      <view style='margin-top:35rpx'><text wx:if="{{item.startGpsLocation.addressText != null}}" style='font-size:35rpx'>起始位置：{{item.startGpsLocation.addressText}}\n</text></view>  
+      <!-- <text style='font-size:30rpx'>结束位置：河南省郑州市中原区红枫路</text> -->
+   </view>
+  <!-- <view class='sticker_bd'>
+      <view class='comp'>
+        <text style='font-size:35rpx'>告警类型：</text>
+        <text style='font-size:30rpx;width:150rpx;color:rgba(146, 146, 146, 0.452);display:block;overflow:hidden;white-space: nowrap;text-overflow:ellipsis;'>{{item.dataType}}</text>
+        <text style='margin-left:35rpx;color: rgb(255, 123, 0);'>{{item.alarmName}}</text>
+      </view>
+
+      <view wx:if="{{item.startGpsLocation.addressText != null}}" class='location'>
+        <text>{{item.startGpsLocation.addressText}}</text>
+      </view>
+
+      <view wx:if="{{item.startGpsLocation.addressText != null}}" class='device' style='margin-top:20rpx'>
+        <text style='font-size:35rpx;color:rgba(146,146,146,0.9)'>{{item.alarmTime}}</text>
+      </view>
+
+      <view wx:if="{{item.startGpsLocation.addressText == null}}" class='device' style='margin-top:110rpx'>
+        <text style='font-size:35rpx;color:rgba(146,146,146,0.9)'>{{item.alarmTime}}</text>
+      </view>
+
+
+    </view> -->
+</view>
+
+
+
+
+
+
+ <view wx:if="{{isHide}}" class='page__ft' >
+   {{loading}}
+  </view>
+
+
+
+
+
+
+<view class="cu-modal {{modalName=='RadioModal'?'show':''}}" bindtap='hideModal'>
+  <view class="cu-dialog">
+    <radio-group class="block" style="background:white" bindchange='radioChange'>
+      <view class="cu-list menu text-left">
+        <view style='font-size:15px;background:white;margin:5px;text-align:center'>选择显示的车辆</view>
+        <view class="cu-item" wx:for="{{userCars}}" wx:key>
+          <label class="flex justify-between align-center flex-sub">
+            <view class="flex-sub">{{userCars[index].plateNumber}}</view>
+            <view wx:if='{{userCars[index].plateNumber == shownCar}}'>
+              <radio class="round" checked='true' value='{{index}}'></radio>
+            </view>
+            <view wx:else>
+              <radio class="round" checked='false' value='{{index}}'></radio>
+            </view>
+          </label>
+        </view>
+      </view>
+    </radio-group>
+  </view>
+</view>

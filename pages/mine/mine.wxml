@@ -1,0 +1,44 @@
+<!--index.wxml-->
+<view class="page">
+  <view class='container'>
+    <view class='user'>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover" bindtap='showuserinfo'></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <!--8个字符开始省略为5字符加'……'-->
+    </view>
+  </view>
+
+  <view class="cu-bar bg-white margin-top">
+  <view class="action" style='font-size:35rpx'>
+    <text class="cuIcon-title text-orange " ></text> 默认车辆:  {{shownCar}}
+  </view>
+  <view class="action">
+    <button class="cu-btn bg-green shadow" bindtap="showModal" data-target="RadioModal" style='font-size:30rpx'>切换</button>
+  </view>
+</view>
+
+<view class="cu-modal {{modalName=='RadioModal'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog" >
+    <radio-group class="block" bindchange='radioChange'>
+      <view class="cu-list menu text-left">
+        <view class="cu-item" wx:for="{{cars}}" wx:key>
+          <label class="flex justify-between align-center flex-sub">
+            <view class="flex-sub">{{item}}</view>
+            <radio class="round" value='{{item}}'></radio>
+          </label>
+        </view>
+      </view>
+    </radio-group>
+  </view>
+</view>
+  <!-- <view class='page__bd page__bd_spacing'>
+    <block wx:for="{{list}}" wx:key="id">
+       <navigator class="weui-cell weui-cell_access" open-type='navigate' url='../user/{{item.id}}/{{item.id}}'>
+        <image src="../../image/{{item.id}}.png" style="width: 70rpx; display: block;margin-right:15px" mode='widthFix'/>
+         <view class="weui-cell__bd" style='font-size:40rpx'>{{item.name}}</view>
+         <view  wx:if="{{item.id == 'message'}}"class="weui-badge" style="margin-left: 5px;">{{newMessages}}</view>
+         <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+       </navigator>
+    </block>
+  </view>-->
+</view> 

@@ -1,0 +1,51 @@
+<view wx:if="{{isHide}}" bindtap='screenTaped'>
+  <view wx:if="{{canIUse}}">
+    <view class='header'>
+      <image src='/image/logo.png' mode='widthFix'></image>
+    </view>
+    <!--<view class='content'>
+            <view>申请获取以下权限</view>
+            <text>获得你的公开信息(昵称，头像等)</text>
+        </view>-->
+    <view class="item">
+      <view class="login-item">
+        <!-- <view class="login-item-info"  style='font-size:30rpx'>用户名</view> -->
+        <image src='/image/account.png' mode='widthFix'></image>
+        <view class="login-pwd">
+          <input bindinput='userAccountInput' style='font-size:28rpx'  value="{{accountValue}}" placeholder="请输入账号" />
+        </view>
+        <scroll-view  wx:if='{{scrollHide}}'scroll-y="true" class="scrollview">
+          <view wx:for="{{bindSource}}">
+            <view id="{{item}}" bindtap="itemtap" class="itemview">{{item}}</view>
+          </view>
+        </scroll-view>
+      </view>
+      <view class="login-item">
+        <!-- <view class="login-item-info" style='font-size:30rpx'>密码</view> -->
+        <image src='/image/password.png' mode='widthFix'></image>
+        <view class="login-pwd">
+          <input style="flex-grow:1" password="true" style='font-size:28rpx' value="{{keyValue}}" placeholder="请输入密码" bindinput='userPasswordInput' />
+        </view>
+      </view>
+      <view style='width: 90%;flex-grow:1;display: flex;flex-direction: column;justify-content: flex-end;'>
+        <view wx:if='{{userNoEnter}}' style='color:red;font-size:30rpx'>用户名或密码不能为空</view>
+      </view>
+      <view style='width: 90%;flex-grow:1;display: flex;flex-direction: column;justify-content: flex-end;'>
+        <view wx:if='{{userErrorInput}}' style='color:red;font-size:30rpx'>用户名不存在或密码错误</view>
+      </view>
+      <checkbox-group bindchange="checkboxChanged">
+        <view class="form-group">
+          <checkbox class='round' value='true' checked='{{isChecked}}'/>
+          <view class="title">记住密码</view>
+        </view>
+      </checkbox-group>
+      <view class="login-btn">
+        <button class="bottom" type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">登录</button>
+      </view>
+    </view>
+  </view>
+  <view wx:else>请升级微信版本</view>
+</view>
+<view wx:else>
+  <image src='/image/wel.jpg' style='width:100%;height:100vh;z-index:0'></image>
+</view>

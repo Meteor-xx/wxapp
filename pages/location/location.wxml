@@ -1,0 +1,105 @@
+<!--index.wxml-->
+<view style='width:100%'>
+  <map style="width:100vw;height:100vh;z-index:0" latitude="{{latitude1}}" longitude="{{longitude1}}" markers="{{markers}}" scale="{{scale}}" polyline="{{polyline}}" id='Map' bindregionchange='regionChange' show-location='true'>
+    <!--1070rpx-->
+    <!-- <cover-view class='pluscv' bindtap='plusmap'>
+      <cover-image class='plusimg' src='/image/plus.png'></cover-image>
+    </cover-view>
+    <cover-view class='minuscv' bindtap='minusmap'>
+      <cover-image class='minusimg' src='/image/minus.png'></cover-image>
+    </cover-view> -->
+    <cover-view class='carDetail' bindtap="refresh">
+      <cover-image class='carDetailImg' src='/image/reload.png'></cover-image>
+    </cover-view>
+    <cover-view class='location' bindtap="getCenterLocation">
+      <cover-image class='location1' src="/image/dingwei.png" />
+    </cover-view>
+    <cover-view class='gif' wx:if='{{showGif}}'>
+      <cover-image src="../../image/loading-white.gif" mode='aspectFit'></cover-image>
+    </cover-view>
+
+    <!-- <cover-view class='carDetail' bindtap="showModal">
+      <cover-image class='carDetailImg' src='/image/car-detailB.png'></cover-image>
+    </cover-view> -->
+    <!-- <cover-view class='carDetail' bindtap="showModals" style='bottom:15vw'>
+      <cover-image class='carDetailImg' src='/image/detail.png' />
+    </cover-view> -->
+    <!-- 
+    <cover-view class='modalBox' wx:if='{{carDetailsHidden}}' bindtap='hideModals'>
+
+      <cover-view style='width:100%;text-align:center;padding-top:10rpx;font-size:40rpx;color:rgba(0, 106, 206, 0.9)'>车辆信息</cover-view>
+
+      <cover-view style='width:100%;height:100%;border-top-color: rgb(0, 213, 228);border-top-style: solid;color:rgba(0, 106, 206, 0.9);padding:10rpx;font-size:35rpx'>
+        <cover-view style='color:rgba(0, 106, 206, 0.9);display:flex;flex-direction:row;'>
+          <cover-view>车牌号:</cover-view>
+          <cover-view style='color:rgba(146, 146, 146, 0.452);margin-left:30rpx'>{{shownCar}}</cover-view>
+        </cover-view>
+
+        <cover-view style='color:rgba(0, 106, 206, 0.9);display:flex;flex-direction:row;margin-top:10rpx'>
+          <cover-view>设备号： </cover-view>
+          <cover-view style='color:rgba(146, 146, 146, 0.452);margin-left:30rpx;'>{{userData[shownIndex].deviceId}}</cover-view>
+        </cover-view>
+        
+
+        <cover-view style='color:rgba(0, 106, 206, 0.9);display:flex;flex-direction:row;margin-top:10rpx'>
+          <cover-view>车辆状态： </cover-view>
+          <cover-view wx:if='{{userData[shownIndex].onlineState == 1}}' style='color:rgba(146, 146, 146, 0.452);margin-left:30rpx'>离线</cover-view>
+          <cover-view wx:elif='{{userData[shownIndex].onlineState == 2}}' style='color:rgba(146, 146, 146, 0.452);margin-left:30rpx'>点火</cover-view>
+          <cover-view wx:elif='{{userData[shownIndex].onlineState == 3}}' style='color:rgba(146, 146, 146, 0.452);margin-left:30rpx'>熄火</cover-view>
+        </cover-view>
+
+        <cover-view style='color:rgba(0, 106, 206, 0.9);display:flex;flex-direction:row;margin-top:10rpx'>
+          <cover-view>车速:</cover-view>
+          <cover-view style='color:rgba(146, 146, 146, 0.452);margin-left:30rpx'>{{userData[shownIndex].gpsLocation.gpsSpeed}}Km/h</cover-view>
+        </cover-view>
+
+        <cover-view style='color:rgba(0, 106, 206, 0.9);display:flex;flex-direction:row;margin-top:10rpx'>
+          <cover-view>定位时间:</cover-view>
+          <cover-view style='color:rgba(146, 146, 146, 0.452);margin-left:30rpx'>{{userData[shownIndex].dateAdded}}</cover-view>
+        </cover-view>
+
+        <cover-view style='color:rgba(0, 106, 206, 0.9);display:flex;flex-direction:row;margin-top:10rpx'>车辆最后位置： </cover-view>
+        <cover-view style='color:rgba(146, 146, 146, 0.452);'>{{userData[shownIndex].gpsLocation.addressText}}</cover-view>
+      </cover-view>
+    </cover-view> -->
+  </map>
+</view>
+<!-- <modal hidden="{{hiddenmodal}}" title="选择车辆" confirm-text="提交" cancel-text="取消" bindcancel="cancelM" bindconfirm="hideModal">
+      <radio-group class="block" style="background:white" bindchange='radioChange'>
+        <view class="cu-list menu text-left">
+          <view class="cu-item" wx:for="{{userCars}}" wx:key>
+            <label class="flex justify-between align-center flex-sub">
+              <view class="flex-sub">{{userCars[index].plateNumber}}</view>
+              <view wx:if='{{userCars[index].plateNumber == shownCar}}'>
+                <radio class="round" checked='true' value='{{index}}'></radio>
+              </view>
+              <view wx:else>
+                <radio class="round" checked='false' value='{{index}}'></radio>
+              </view>
+            </label>
+          </view>
+        </view>
+      </radio-group>
+  </modal>-->
+
+
+<!--<view class="cu-modal {{modalName=='RadioModal'?'show':''}}" bindtap='hideModal'>
+    <view class="cu-dialog">
+      <radio-group class="block" style="background:white" bindchange='radioChange'>
+        <view class="cu-list menu text-left">
+          <view style='font-size:15px;background:white;margin:5px;text-align:center'>选择显示的车辆</view>
+          <view class="cu-item" wx:for="{{userCars}}" wx:key>
+            <label class="flex justify-between align-center flex-sub">
+              <view class="flex-sub">{{userCars[index].plateNumber}}</view>
+              <view wx:if='{{userCars[index].plateNumber == shownCar}}'>
+                <radio class="round" checked='true' value='{{index}}'></radio>
+              </view>
+              <view wx:else>
+                <radio class="round" checked='false' value='{{index}}'></radio>
+              </view>
+            </label>
+          </view>
+        </view>
+      </radio-group>
+    </view>
+  </view>-->

@@ -1,0 +1,100 @@
+.page__ft{
+  display: flex;
+  justify-content: center;
+}
+
+.deleter{
+  height:70rpx;
+  display:flex;
+  align-items: center;
+  flex-direction:row-reverse;
+  margin-right:20px;
+  margin-top: 15px;
+  z-index:2
+}
+.deleter_bd{
+  display:flex;
+  flex-direction:row;
+  color:rgba(146, 146, 146, 0.452);
+  padding: 1px;
+  height: 70rpx;
+  width: 140rpx;
+  border-radius:15px;
+  background-color:white;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+  box-shadow: 0 0 6px 1px rgba(146,146,146,0.402)
+}
+.deleter_cell{
+  display: flex;
+  margin: 1px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 3
+}
+.sticker{
+  padding: 30rpx 30rpx 30rpx 10rpx;
+  z-index: 1;
+  display: block;
+}
+.sticker_top{
+  display: flex;
+  flex-direction: row;
+  color: #888;
+  font-size: 40rpx;
+  align-items: center;
+}
+.sticker_r{
+  background-color: #e54d42;
+  color: white;
+  width: 600rpx;
+  margin-left: 100rpx;
+  padding:30rpx;
+  display:block;
+  line-height:1.6;
+  box-shadow: 4rpx 4rpx 6rpx 0 #e54d42;
+}
+.sticker_gray{
+  background-color: #8799a3;
+  color: white;
+  width: 600rpx;
+  margin-left: 100rpx;
+  padding:30rpx;
+  display:block;
+  line-height:1.6;
+  box-shadow: 4rpx 4rpx 6rpx 0 #8799a3;
+}
+.sticker_b{
+  background-color: #0081ff;
+  color: white;
+  width: 600rpx;
+  margin-left: 100rpx;
+  padding:30rpx;
+  display:block;
+  line-height:1.6;
+  box-shadow: 4rpx 4rpx 6rpx 0 #0081ff;
+}
+.sticker_g{
+  background-color: #39b54a;
+  color: white;
+  width: 600rpx;
+  margin-left: 100rpx;
+  padding:30rpx;
+  display:block;
+  line-height:1.6;
+  box-shadow: 4rpx 4rpx 6rpx 0 #39b54a;
+}
+.sticker_y{
+  background-color: #fbbd08;
+  color: white;
+  width: 600rpx;
+  margin-left: 100rpx;
+  padding:30rpx;
+  display:block;
+  line-height:1.6;
+  box-shadow: 4rpx 4rpx 6rpx 0 #fbbd08;
+}
+

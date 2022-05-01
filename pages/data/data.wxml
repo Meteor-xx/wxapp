@@ -1,0 +1,11 @@
+<view>
+  <text>key</text>
+  <input type='text' placeholder='请输入key值' bindinput='keyChange'></input>
+  <text>value</text>
+  <input type='text' placeholder='请输入value' bindinput='dateChange'></input>
+  <button type='primary' bindtap='setStorage'>存储数据</button>
+  <button bindtap='getStorage'>读取数据</button>
+  <button bindtap='getAllStorage'>获取所有数据</button>
+  <button bindtap='clearStorage'>清理数据</button>
+  <modal title="{{dialog.title}}" hidden="{{dialog.hidden}}" no-cancel bindconfirm="confirm">{{dialog.content}}</modal>
+</view>

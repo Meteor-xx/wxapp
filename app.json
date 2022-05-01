@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/mine/mine",
+    "pages/location/location",
+    "pages/logs/logs",
+    "pages/data/data",
+    "pages/warning/warning",
+    "pages/line/line",
+    "pages/detail/w-detail/w-detail",
+    "pages/user/device/device",
+    "pages/detail/l-detail/l-detail",
+    "pages/user/message/message",
+    "pages/user/settings/settings",
+    "pages/user/cars/cars"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "云驾智联",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/location/location",
+        "text": "位置",
+        "iconPath": "image/tabcar21.png",
+        "selectedIconPath": "image/tabcar22.png"
+      },
+      {
+        "pagePath": "pages/line/line",
+        "text": "行程列表",
+        "iconPath": "image/calendar21.png",
+        "selectedIconPath": "image/calendar22.png"
+      },
+      {
+        "pagePath": "pages/warning/warning",
+        "text": "告警信息",
+        "iconPath": "image/warning-gray.png",
+        "selectedIconPath": "image/warning-b.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "image/user21.png",
+        "selectedIconPath": "image/user22.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

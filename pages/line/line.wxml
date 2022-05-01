@@ -1,0 +1,106 @@
+<wxs src="./line.wxs" module='line' />
+<view class='page'>
+
+
+  <view class='container'>
+
+
+    <view style='margin-bottom:50rpx;'></view>
+
+
+    <view class='box1'>
+      <text style='color:#0059ff;font-size:50rpx;font-family:Helvetica Neue;margin-top:30rpx;margin-right:70rpx'>{{line.fuelFix(fuel)}}</text>
+      <text style='color:#000;fint-size:35rpx;margin-right:125rpx'>{{time}}</text>
+    </view>
+
+    <view class='user'>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover" bindtap='showuserinfo'></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text><!--7个字符开始省略为4字符加'……'-->
+    </view>
+
+  </view>
+
+
+  <view class='box2'>
+    <view class='box2-cell'>
+      <text style='font-size:40rpx;color:rgba(0, 106, 206, 0.9);padding-bottom:10rpx'>{{line.timeToFixT(driverTime)}}</text>
+      <text style='font-size:35rpx;color:rgba(146, 146, 146, 0.452)'>行驶时间</text>
+    </view>
+    <view class='box2-cell'>
+      <text style='font-size:40rpx;color:rgba(0, 106, 206, 0.9);padding-bottom:10rpx'>{{line.numFix(mileage)}}km</text>
+      <text style='font-size:35rpx;color:rgba(146, 146, 146, 0.452)'>行驶里程</text>
+    </view>
+    <view class='box2-cell'>
+      <text style='font-size:40rpx;color:rgba(0, 106, 206, 0.9);padding-bottom:10rpx'>{{line.numFix(avgSpeed)}}km/h</text>
+      <text style='font-size:35rpx;color:rgba(146, 146, 146, 0.452)'>平均速度</text>
+    </view>
+  </view>
+
+  <view class='deleter'>
+    <view class='deleter_bd'>
+      <picker class="deleter_cell" mode="date" start="2015-09-01" end="{{time}}" bindchange="bindDateChange" style='justify-content: center;align-items: center;text-align: center;'>
+        <image src='../../image/calendar-check.png' style='width:23px;height:23px;margin-top:5px;margin-left:1px'></image>
+      </picker>
+      <!-- <text class="deleter_cell" style='flex:1'>|</text>
+      <image class="deleter_cell" src='../../image/reload.png' style='width:23px;height:23px;' bindtap='reloader'></image> -->
+    </view>
+    <text style='margin-right:300rpx;color:rgba(146, 146, 146, 0.99);'>{{showtime}}</text>
+    <!-- <view class='deleter_bd' style='margin-right:5vw;display:flex;flex-direction:row;color:rgba(146, 146, 146, 0.452);padding: 1px;height: 70rpx;width: 140rpx;border-radius:15px;background-color:white;justify-content:center;align-items: center;text-align: center;z-index: 2;box-shadow: 0 0 6px 1px rgba(146,146,146,0.402)'>
+      <image src='../../image/car-detailB.png' style='width:23px;height:23px;' bindtap="showModal" data-target="RadioModal"></image>
+    </view> -->
+  </view>
+  <view wx:if='{{shown_listL == 0}}' style='width:100vw;padding:10vw;margin-top:10vw;text-align:center;color:rgba(146, 146, 146, 0.452);'>无行程信息</view>
+  <view wx:for='{{shown_list}}' wx:key='id' class='sticker' bindtap='itemtaped' data-item='{{item}}'>
+    <text style='font-size:35rpx;color:rgba(146,146,146,0.9)'>{{item.travelStartTime}}</text>
+    <view class='sticker_bd'>
+      <view class='sticker_cot'>
+        <text style='font-size:25rpx;color:rgba(146,146,146,0.9)'>{{item.startGpsLocation.gpsTime}}</text>
+        <image src='../../image/start.png' style='width:60rpx' mode='widthFix'></image>
+        <text style='font-size:20rpx;color:rgba(146,146,146,0.9);'>|\n|\n|\n|</text>
+        <text style='font-size:25rpx;color:rgba(146,146,146,0.9)'>{{item.endGpsLocation.gpsTime}}</text>
+        <image src='../../image/end.png' style='width:60rpx' mode='widthFix'></image>
+      </view>
+      <view class='sticker_line'>
+        <text style='flex:1;display:flex;align-items:center;'>{{item.startGpsLocation.addressText}}</text>
+        <view style='flex:1;height:35rpx;display:flex;flex-direction:row;color:rgba(146,146,146,0.9);font-size:35rpx;align-items:center;'>
+          <view style='width:200rpx;height:35rpx;display:flex;flex-direction:row;align-items:center;'>
+            <image src='../../image/mile.png' style='width:38rpx;height:auto;' mode='widthFix'></image>
+            <text style='margin-left:10rpx;font-size:30rpx;'>{{line.milesToFix(item.mileage)}}km</text>
+          </view>
+          <view style='width:240rpx;margin-left:30rpx;height:35rpx;display:flex;flex-direction:row;align-items:center;'>
+            <image src='../../image/clock2.png' style='width:35rpx;height:auto;' mode='widthFix'></image>
+            <text style='margin-left:10rpx;font-size:30rpx'>{{line.timeToFix(item.driverTime)}}</text>
+          </view> 
+        </view>
+        <text style='flex:1;display:flex;align-items:center;'>{{item.endGpsLocation.addressText}}</text>
+      </view>
+    </view>
+  </view>
+
+
+
+  <view class="cu-modal {{modalName=='RadioModal'?'show':''}}" bindtap='hideModal'>
+    <view class="cu-dialog">
+      <radio-group class="block" style="background:white" bindchange='radioChange'>
+        <view class="cu-list menu text-left">
+          <view style='font-size:15px;background:white;margin:5px;text-align:center'>选择显示的车辆</view>
+          <view class="cu-item" wx:for="{{userCars}}" wx:key>
+            <label class="flex justify-between align-center flex-sub">
+              <view class="flex-sub">{{userCars[index].plateNumber}}</view>
+              <view wx:if='{{userCars[index].plateNumber == shownCar}}'>
+                <radio class="round" checked='true' value='{{index}}'></radio>
+              </view>
+              <view wx:else>
+                <radio class="round" checked='false' value='{{index}}'></radio>
+              </view>
+            </label>
+          </view>
+        </view>
+      </radio-group>
+    </view>
+  </view>
+
+  <view wx:if="{{isHide}}" class='page__ft' >
+   {{loading}}
+  </view>
+</view>

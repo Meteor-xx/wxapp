@@ -1,0 +1,38 @@
+<!--pages/detail/l-detail/l-detail.wxml-->
+<view>
+  <map 
+  id='myMap'
+  style="width:100%;height:100vh"
+  latitude="{{latitude1}}"
+  longitude="{{longitude1}}"
+  markers="{{markers}}"
+  scale="{{scale}}"
+  polyline="{{polyline}}"
+  show-location
+  bindregionchange='regionChange'>
+    <cover-view class='carDetail'  bindtap="refresh">
+      <cover-image class='carDetailImg' src= "/image/reload.png" />
+    </cover-view>
+    <cover-view class='location'  bindtap="getCenterLocation">
+      <cover-image class='location1' src= "/image/dingwei.png" />
+    </cover-view>
+    <!-- <cover-view class='cu-load load-modal' wx:if='{{showModal}}'/> -->
+    <cover-view class='gif' wx:if='{{showModal}}'>
+      <cover-image src="../../../image/loading-white.gif" mode='aspectFit'></cover-image>
+    </cover-view>
+  </map>
+</view>
+
+
+
+
+    <!--1070rpx-->
+  <!-- <cover-view class='pluscv' bindtap='plusmap'>
+      <cover-image class='plusimg' src='/image/plus.png'></cover-image>
+    </cover-view>
+    <cover-view class='minuscv' bindtap='minusmap'>
+      <cover-image class='minusimg' src='/image/minus.png'></cover-image>
+    </cover-view> -->
+    
+  <!--id="map" style="width: 100%; height: {{syshigth}}px;" polyline="{{polyline}}" longitude="{{longitude?longitude:lon}}" latitude="{{latitude?latitude:lat}}" bindtap EventHandle="tap" scale="{{scale}}" controls="{{controls}}" bindcontroltap="controltap"
+    markers="{{markers}}" data-id="{{markers}}" bindmarkertap="markertap" bindcallouttap="callouttap" show-location-->

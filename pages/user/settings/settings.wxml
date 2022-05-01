@@ -1,0 +1,2 @@
+<!--pages/user/settings/settings.wxml-->
+<button class='button1' type="warn" bindtap="primary" > 切换账号 </button>
